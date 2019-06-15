@@ -48,7 +48,7 @@ public class OrderListFragment extends Fragment {
     }
 
     private void getData() {
-        orders.add(new Order("Hanoi", "Hochiminh City",new Date(System.currentTimeMillis()),
+        orders.add(new Order("Hanoi", "Hochiminh City",System.currentTimeMillis(),
                 "Hung","0971423103", 5,2,3,4,"Birthday Gift",100000,1));
     }
 }

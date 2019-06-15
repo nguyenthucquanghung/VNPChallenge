@@ -9,7 +9,7 @@ import java.util.Date;
 public class Order {
     private String fromAddress;
     private String toAddress;
-    private Date pickupTime;
+    private long pickupTime;
     private String receiverName;
     private String receiverNumber;
     private float packageWeight;
@@ -23,7 +23,7 @@ public class Order {
     public Order(
                  String fromAddress,
                  String toAddress,
-                 Date pickupTime,
+                 long pickupTime,
                  String receiverName,
                  String receiverNumber,
                  float packageWeight,
@@ -65,11 +65,11 @@ public class Order {
         this.toAddress = toAddress;
     }
 
-    public Date getPickupTime() {
+    public long getPickupTime() {
         return pickupTime;
     }
 
-    public void setPickupTime(Date pickupTime) {
+    public void setPickupTime(long pickupTime) {
         this.pickupTime = pickupTime;
     }
 
