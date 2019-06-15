@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".screen.HomeActivity">
 
-    <FrameLayout
-        android:id="@+id/frame_layout_home"
+    <include
+        layout="@layout/content_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bot_nav_view_home"
-        />
+        android:layout_above="@id/bot_nav_view_home" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bot_nav_view_home"
