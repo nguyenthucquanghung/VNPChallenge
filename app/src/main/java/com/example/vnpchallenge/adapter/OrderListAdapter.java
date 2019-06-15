@@ -2,6 +2,7 @@ package com.example.vnpchallenge.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.vnpchallenge.R;
+import com.example.vnpchallenge.base.Constant;
 import com.example.vnpchallenge.model.Order;
 import com.example.vnpchallenge.screen.OrderDetailActivity;
 
@@ -61,7 +63,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             tvFee = itemView.findViewById(R.id.tv_fee);
         }
 
-        public void setData(Order order) {
+        public void setData(final Order order) {
             tvToName.setText(order.getReceiverName());
             tvToAddress.setText(order.getToAddress());
             tvNote.setText(order.getNote());
@@ -71,6 +73,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, OrderDetailActivity.class);
+                    intent.putExtra(Constant.ORDER_INTENT, order);
                     context.startActivity(intent);
                 }
             });
