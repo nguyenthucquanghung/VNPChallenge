@@ -19,10 +19,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amazonaws.amplify.generated.graphql.CreateOrdersMutation;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
+import com.example.vnpchallenge.MainActivity;
 import com.example.vnpchallenge.R;
 import com.example.vnpchallenge.database.DatabaseManager;
 import com.example.vnpchallenge.model.Order;
@@ -31,6 +34,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.annotation.Nonnull;
+
+import type.CreateOrdersInput;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -127,7 +132,26 @@ public class CreateOrderFragment extends Fragment {
     }
 
     private void postData(Order order) {
+        CreateOrdersInput createOrdersInput = CreateOrdersInput.builder()
+                .fromAddress(order.getFromAddress())
+                .toAddress(order.getToAddress())
+                .pickupTime(String.valueOf(order.getPickupTime()))
+                .receiverName(order.getReceiverName())
+                .receiverNumber(order.getReceiverNumber())
+                .packageWeight((double) order.getPackageWeight())
+                .sizeW((double) order.getSizeW())
+                .sizeL((double) order.getSizeL())
+                .sizeH((double) order.getSizeH())
+                .note(order.getNote())
+                .fee((double) order.getFee())
+                .type(order.getType())
+                .owner(MainActivity.userID)
+                .build();
+
+        mAWSAppSyncClient.mutate(CreateOrdersMutation.builder().input(createOrdersInput).build())
+                .enqueue(mutationCallback);
         DatabaseManager.getInstance(getContext()).addOrder(order);
+        getContext().sendBroadcast(new Intent("add_order"));
         getContext().sendBroadcast(new Intent("update_order"));
     }
 
@@ -144,16 +168,6 @@ public class CreateOrderFragment extends Fragment {
         edtWeight = getView().findViewById(R.id.edt_weight);
         edtNote = getView().findViewById(R.id.edt_note);
         btnCreate = getView().findViewById(R.id.btn_create);
-    }
-
-    public void runMutation(){
-        CreateOrdersInput createOrdersInput = CreateOrdersInput.builder().
-                name("Use AppSync").
-                description("Realtime and Offline").
-                build();
-
-        mAWSAppSyncClient.mutate(CreateOrdersMutation.builder().input(createOrdersInput).build())
-                .enqueue(mutationCallback);
     }
 
     private GraphQLCall.Callback<CreateOrdersMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateOrdersMutation.Data>() {

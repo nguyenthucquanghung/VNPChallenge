@@ -1,7 +1,7 @@
 # this is an auto generated file. This will be overwritten
 mutation CreateOrders($input: CreateOrdersInput!) {
   createOrders(input: $input) {
-    transactionId
+    id
     fromAddress
     toAddress
     pickupTime
@@ -15,12 +15,11 @@ mutation CreateOrders($input: CreateOrdersInput!) {
     fee
     type
     owner
-    xx
   }
 }
 mutation UpdateOrders($input: UpdateOrdersInput!) {
   updateOrders(input: $input) {
-    transactionId
+    id
     fromAddress
     toAddress
     pickupTime
@@ -34,12 +33,11 @@ mutation UpdateOrders($input: UpdateOrdersInput!) {
     fee
     type
     owner
-    xx
   }
 }
 mutation DeleteOrders($input: DeleteOrdersInput!) {
   deleteOrders(input: $input) {
-    transactionId
+    id
     fromAddress
     toAddress
     pickupTime
@@ -53,7 +51,6 @@ mutation DeleteOrders($input: DeleteOrdersInput!) {
     fee
     type
     owner
-    xx
   }
 }
 mutation CreateUsers($input: CreateUsersInput!) {

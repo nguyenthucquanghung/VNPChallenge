@@ -1,7 +1,7 @@
 # this is an auto generated file. This will be overwritten
 subscription OnCreateOrders {
   onCreateOrders {
-    transactionId
+    id
     fromAddress
     toAddress
     pickupTime
@@ -15,12 +15,11 @@ subscription OnCreateOrders {
     fee
     type
     owner
-    xx
   }
 }
 subscription OnUpdateOrders {
   onUpdateOrders {
-    transactionId
+    id
     fromAddress
     toAddress
     pickupTime
@@ -34,12 +33,11 @@ subscription OnUpdateOrders {
     fee
     type
     owner
-    xx
   }
 }
 subscription OnDeleteOrders {
   onDeleteOrders {
-    transactionId
+    id
     fromAddress
     toAddress
     pickupTime
@@ -53,7 +51,6 @@ subscription OnDeleteOrders {
     fee
     type
     owner
-    xx
   }
 }
 subscription OnCreateUsers {
