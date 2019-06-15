@@ -11,6 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.amazonaws.amplify.generated.graphql.ListOrderssQuery;
+import com.amazonaws.mobile.config.AWSConfiguration;
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
+import com.example.vnpchallenge.MainActivity;
 import com.example.vnpchallenge.R;
 import com.example.vnpchallenge.adapter.OrderListAdapter;
 import com.example.vnpchallenge.model.Order;
@@ -18,11 +26,15 @@ import com.example.vnpchallenge.model.Order;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.annotation.Nonnull;
+
 public class OrderListFragment extends Fragment {
     private static final String TAG = "OrderListFragment";
 
     RecyclerView rcvOrderList;
     ArrayList<Order> orders = new ArrayList<>();
+
+    private AWSAppSyncClient mAWSAppSyncClient;
 
     public OrderListFragment () {
 
@@ -38,17 +50,59 @@ public class OrderListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mAWSAppSyncClient = AWSAppSyncClient.builder()
+                .context(getContext())
+                .awsConfiguration(new AWSConfiguration(getContext()))
+                .build();
+
         rcvOrderList = view.findViewById(R.id.rcv_orders);
 
-        getData();
+        runQuery();
 
+        renderData();
+    }
+
+    private void renderData() {
         OrderListAdapter adapter = new OrderListAdapter(orders, getContext());
         rcvOrderList.setLayoutManager(new LinearLayoutManager(getContext()));
         rcvOrderList.setAdapter(adapter);
     }
 
-    private void getData() {
-        orders.add(new Order("Hanoi", "Hochiminh City",System.currentTimeMillis(),
-                "Hung","0971423103", 5,2,3,4,"Birthday Gift",100000,1));
+    public void runQuery(){
+        mAWSAppSyncClient.query(ListOrderssQuery.builder().build())
+                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+                .enqueue(OrderssCallback);
     }
+
+    private GraphQLCall.Callback<ListOrderssQuery.Data> OrderssCallback = new GraphQLCall.Callback<ListOrderssQuery.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<ListOrderssQuery.Data> response) {
+            Log.i("Results", response.data().listOrderss().items().toString());
+            orders.clear();
+            for (ListOrderssQuery.Item item: response.data().listOrderss().items())
+                if (item.owner().equals(MainActivity.userID)) {
+                    Order order = new Order(
+                            item.fromAddress(),
+                            item.toAddress(),
+                            Long.parseLong(item.pickupTime()),
+                            item.receiverName(),
+                            item.receiverNumber(),
+                            item.packageWeight(),
+                            item.sizeW(),
+                            item.sizeL(),
+                            item.sizeH(),
+                            item.note(),
+                            item.fee(),
+                            item.type()
+                    );
+                    orders.add(order);
+                }
+            renderData();
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("ERROR", e.toString());
+        }
+    };
 }

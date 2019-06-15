@@ -9,6 +9,7 @@ import com.example.vnpchallenge.screen.HomeActivity;
 import com.example.vnpchallenge.screen.LoginActivity;
 
 public class MainActivity extends BaseActivity {
+    public static String userID = "djtmetron";
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;

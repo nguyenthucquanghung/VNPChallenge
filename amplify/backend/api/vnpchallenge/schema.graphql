@@ -1,5 +1,5 @@
 type Orders @model {
-  transactionId: ID!
+  id: ID!
   fromAddress: String
   toAddress: String
   pickupTime: String
@@ -13,7 +13,6 @@ type Orders @model {
   fee: Float
   type: Int
   owner: String
-  xx: Int
 }
 
 type Users @model {

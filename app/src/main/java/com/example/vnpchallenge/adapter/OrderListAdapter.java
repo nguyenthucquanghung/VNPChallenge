@@ -64,7 +64,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             tvToName.setText(order.getReceiverName());
             tvToAddress.setText(order.getToAddress());
             tvNote.setText(order.getNote());
-            tvFee.setText(Float.toString(order.getFee()) + "vnd");
+            tvFee.setText(Double.toString(order.getFee()) + "vnd");
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
