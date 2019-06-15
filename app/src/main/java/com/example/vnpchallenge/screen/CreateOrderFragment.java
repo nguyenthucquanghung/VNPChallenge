@@ -113,7 +113,7 @@ public class CreateOrderFragment extends Fragment {
     }
 
     private void bindData() {
-        edtFromAddress = getView().findViewWithTag(R.id.edt_from_address);
+        edtFromAddress = getView().findViewById(R.id.edt_from_address);
         tvDate = getView().findViewById(R.id.tv_date);
         edtReceiverName = getView().findViewById(R.id.edt_receiver_name);
         edtToAdress = getView().findViewById(R.id.edt_to_address);

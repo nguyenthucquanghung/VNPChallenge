@@ -1,5 +1,7 @@
 package com.example.vnpchallenge.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.vnpchallenge.R;
 import com.example.vnpchallenge.model.Order;
+import com.example.vnpchallenge.screen.OrderDetailActivity;
 
 import java.util.ArrayList;
 
@@ -17,9 +20,11 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     private static final String TAG = "OrderListAdapter";
 
     private ArrayList<Order> orders;
+    private Context context;
 
-    public OrderListAdapter(ArrayList<Order> orders) {
+    public OrderListAdapter(ArrayList<Order> orders, Context context) {
         this.orders = orders;
+        this.context = context;
     }
 
     @NonNull
@@ -43,10 +48,12 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     public class OrderListViewholder extends RecyclerView.ViewHolder {
 
         TextView tvToName, tvToAddress, tvNote, tvFee;
+        View view;
 
         public OrderListViewholder(@NonNull View itemView) {
             super(itemView);
 
+            view = itemView;
             tvToName = itemView.findViewById(R.id.tv_to_name);
             tvToAddress = itemView.findViewById(R.id.tv_to_address);
             tvNote = itemView.findViewById(R.id.tv_note);
@@ -58,6 +65,14 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             tvToAddress.setText(order.getToAddress());
             tvNote.setText(order.getNote());
             tvFee.setText(Float.toString(order.getFee()) + "vnd");
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, OrderDetailActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

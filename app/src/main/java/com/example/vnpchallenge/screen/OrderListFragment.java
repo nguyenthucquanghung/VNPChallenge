@@ -42,7 +42,7 @@ public class OrderListFragment extends Fragment {
 
         getData();
 
-        OrderListAdapter adapter = new OrderListAdapter(orders);
+        OrderListAdapter adapter = new OrderListAdapter(orders, getContext());
         rcvOrderList.setLayoutManager(new LinearLayoutManager(getContext()));
         rcvOrderList.setAdapter(adapter);
     }
