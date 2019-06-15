@@ -22,7 +22,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_arrow_back_black_24dp"
                 android:tint="@color/black"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:id="@+id/iv_back"
+                android:visibility="gone"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,7 +78,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:hint="Enter your address"/>
+                        android:hint="Enter your address"
+                        android:id="@+id/edt_from_address"/>
 
                 </LinearLayout>
 
@@ -95,9 +98,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="20:00 - 15/6/2015"
+                        android:text="15/6/2015"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"/>
+                        android:layout_marginRight="8dp"
+                        android:id="@+id/tv_date"/>
 
                 </LinearLayout>
 
@@ -146,7 +150,8 @@
                         android:layout_height="wrap_content"
                         android:hint="Receiver's name"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"/>
+                        android:layout_marginRight="8dp"
+                        android:id="@+id/edt_receiver_name"/>
 
                 </LinearLayout>
 
@@ -167,7 +172,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:hint="Deliver to"/>
+                        android:hint="Deliver to"
+                        android:id="@+id/edt_to_address"/>
 
                 </LinearLayout>
 
@@ -189,7 +195,8 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:hint="Phone number"
-                        android:inputType="number"/>
+                        android:inputType="number"
+                        android:id="@+id/edt_to_number"/>
 
                 </LinearLayout>
 
@@ -224,22 +231,27 @@
 
                 <RadioGroup
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rg_type">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="COD"/>
+                        android:text="COD"
+                        android:id="@+id/rb_cod"/>
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="EMS"/>
+                        android:text="EMS"
+                        android:id="@+id/rb_ems"/>
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Normal"/>
+                        android:text="Normal"
+                        android:checked="true"
+                        android:id="@+id/rb_normal"/>
 
                 </RadioGroup>
 
