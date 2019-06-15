@@ -30,4 +30,100 @@ public class Order {
         this.fee = fee;
         this.type = type;
     }
+
+    public String getFromAddress() {
+        return fromAddress;
+    }
+
+    public void setFromAddress(String fromAddress) {
+        this.fromAddress = fromAddress;
+    }
+
+    public String getToAddress() {
+        return toAddress;
+    }
+
+    public void setToAddress(String toAddress) {
+        this.toAddress = toAddress;
+    }
+
+    public Date getPickupTime() {
+        return pickupTime;
+    }
+
+    public void setPickupTime(Date pickupTime) {
+        this.pickupTime = pickupTime;
+    }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
+    }
+
+    public String getReceiverNumber() {
+        return receiverNumber;
+    }
+
+    public void setReceiverNumber(String receiverNumber) {
+        this.receiverNumber = receiverNumber;
+    }
+
+    public float getPackageWeight() {
+        return packageWeight;
+    }
+
+    public void setPackageWeight(float packageWeight) {
+        this.packageWeight = packageWeight;
+    }
+
+    public float getSizeW() {
+        return sizeW;
+    }
+
+    public void setSizeW(float sizeW) {
+        this.sizeW = sizeW;
+    }
+
+    public float getSizeL() {
+        return sizeL;
+    }
+
+    public void setSizeL(float sizeL) {
+        this.sizeL = sizeL;
+    }
+
+    public float getSizeH() {
+        return sizeH;
+    }
+
+    public void setSizeH(float sizeH) {
+        this.sizeH = sizeH;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public float getFee() {
+        return fee;
+    }
+
+    public void setFee(float fee) {
+        this.fee = fee;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 }
