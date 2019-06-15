@@ -5,10 +5,95 @@
     android:layout_height="match_parent"
     tools:context=".screen.UserFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="user" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_user"
+            android:tint="@color/black"
+            android:layout_marginTop="36dp"
+            android:id="@+id/iv_ava"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="user name"
+            android:layout_below="@id/iv_ava"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:layout_marginTop="16dp"
+            android:id="@+id/tv_user_name"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_user_name"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_home"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hanoi"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/tv_address"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_phone_number"
+                    android:layout_marginLeft="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="18dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0971423103"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/tv_phone_number"/>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:textAllCaps="false"
+                android:background="@color/yellow"
+                android:textColor="@color/white"
+                android:layout_margin="24dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </FrameLayout>
