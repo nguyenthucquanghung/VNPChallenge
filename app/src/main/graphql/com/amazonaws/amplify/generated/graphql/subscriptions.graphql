@@ -1,0 +1,79 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateOrders {
+  onCreateOrders {
+    id
+    fromAddress
+    toAddress
+    pickupTime
+    receiverName
+    receiverNumber
+    packageWeight
+    sizeW
+    sizeL
+    sizeH
+    note
+    fee
+    type
+    owner
+  }
+}
+subscription OnUpdateOrders {
+  onUpdateOrders {
+    id
+    fromAddress
+    toAddress
+    pickupTime
+    receiverName
+    receiverNumber
+    packageWeight
+    sizeW
+    sizeL
+    sizeH
+    note
+    fee
+    type
+    owner
+  }
+}
+subscription OnDeleteOrders {
+  onDeleteOrders {
+    id
+    fromAddress
+    toAddress
+    pickupTime
+    receiverName
+    receiverNumber
+    packageWeight
+    sizeW
+    sizeL
+    sizeH
+    note
+    fee
+    type
+    owner
+  }
+}
+subscription OnCreateUsers {
+  onCreateUsers {
+    userId
+    phoneNumber
+    address
+    email
+  }
+}
+subscription OnUpdateUsers {
+  onUpdateUsers {
+    userId
+    phoneNumber
+    address
+    email
+  }
+}
+subscription OnDeleteUsers {
+  onDeleteUsers {
+    userId
+    phoneNumber
+    address
+    email
+  }
+}

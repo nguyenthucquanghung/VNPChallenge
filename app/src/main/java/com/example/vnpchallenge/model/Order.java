@@ -9,12 +9,12 @@ public class Order implements Serializable {
     private long pickupTime;
     private String receiverName;
     private String receiverNumber;
-    private float packageWeight;
-    private float sizeW;
-    private float sizeL;
-    private float sizeH;
+    private double packageWeight;
+    private double sizeW;
+    private double sizeL;
+    private double sizeH;
     private String note;
-    private float fee;
+    private double fee;
     private int type;
 
     public Order(int id,
@@ -23,12 +23,12 @@ public class Order implements Serializable {
                  long pickupTime,
                  String receiverName,
                  String receiverNumber,
-                 float packageWeight,
-                 float sizeW,
-                 float sizeL,
-                 float sizeH,
+                 double packageWeight,
+                 double sizeW,
+                 double sizeL,
+                 double sizeH,
                  String note,
-                 float fee,
+                 double fee,
                  int type) {
         this.id = id;
         this.fromAddress = fromAddress;
@@ -93,35 +93,35 @@ public class Order implements Serializable {
         this.receiverNumber = receiverNumber;
     }
 
-    public float getPackageWeight() {
+    public double getPackageWeight() {
         return packageWeight;
     }
 
-    public void setPackageWeight(float packageWeight) {
+    public void setPackageWeight(double packageWeight) {
         this.packageWeight = packageWeight;
     }
 
-    public float getSizeW() {
+    public double getSizeW() {
         return sizeW;
     }
 
-    public void setSizeW(float sizeW) {
+    public void setSizeW(double sizeW) {
         this.sizeW = sizeW;
     }
 
-    public float getSizeL() {
+    public double getSizeL() {
         return sizeL;
     }
 
-    public void setSizeL(float sizeL) {
+    public void setSizeL(double sizeL) {
         this.sizeL = sizeL;
     }
 
-    public float getSizeH() {
+    public double getSizeH() {
         return sizeH;
     }
 
-    public void setSizeH(float sizeH) {
+    public void setSizeH(double sizeH) {
         this.sizeH = sizeH;
     }
 
@@ -133,11 +133,11 @@ public class Order implements Serializable {
         this.note = note;
     }
 
-    public float getFee() {
+    public double getFee() {
         return fee;
     }
 
-    public void setFee(float fee) {
+    public void setFee(double fee) {
         this.fee = fee;
     }
 
@@ -166,4 +166,6 @@ public class Order implements Serializable {
                 ", type=" + type +
                 '}';
     }
+
+
 }
