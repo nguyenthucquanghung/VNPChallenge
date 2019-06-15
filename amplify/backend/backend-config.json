@@ -1,1 +1,8 @@
-{}
+{
+	"auth": {
+		"vnpchallengef6c91a67": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
