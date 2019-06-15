@@ -78,6 +78,7 @@
                             android:tint="@color/blue"/>
 
                         <TextView
+                            android:id="@+id/tv_from_address_detail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Hanoi, Vietnam"
@@ -230,6 +231,7 @@
                     android:padding="8dp">
 
                     <TextView
+
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:text="Shipping Type"
@@ -237,6 +239,7 @@
                         android:textColor="@color/black"/>
 
                     <TextView
+                        android:id="@+id/tv_type"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="EMS"
