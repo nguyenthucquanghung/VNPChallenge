@@ -1,0 +1,24 @@
+type Orders @model {
+  transactionId: ID!
+  fromAddress: String
+  toAddress: String
+  pickupTime: String
+  receiverName: String
+  receiverNumber: String
+  packageWeight: Float
+  sizeW: Float
+  sizeL: Float
+  sizeH: Float
+  note: String
+  fee: Float
+  type: Int
+  owner: String
+  xx: Int
+}
+
+type Users @model {
+  userId: ID!
+  phoneNumber: String
+  address: String
+  email: String     
+}

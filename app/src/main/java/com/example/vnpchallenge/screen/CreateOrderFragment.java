@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +18,17 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amazonaws.mobile.config.AWSConfiguration;
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.exception.ApolloException;
 import com.example.vnpchallenge.R;
 import com.example.vnpchallenge.model.Order;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.annotation.Nonnull;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,6 +48,8 @@ public class CreateOrderFragment extends Fragment {
     EditText edtNote;
     Button btnCreate;
 
+    private AWSAppSyncClient mAWSAppSyncClient;
+
     public CreateOrderFragment() {
         // Required empty public constructor
     }
@@ -56,6 +65,11 @@ public class CreateOrderFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        mAWSAppSyncClient = AWSAppSyncClient.builder()
+                .context(getContext())
+                .awsConfiguration(new AWSConfiguration(getContext()))
+                .build();
 
         bindData();
 
@@ -127,4 +141,25 @@ public class CreateOrderFragment extends Fragment {
         btnCreate = getView().findViewById(R.id.btn_create);
     }
 
+    public void runMutation(){
+        CreateOrdersInput createOrdersInput = CreateOrdersInput.builder().
+                name("Use AppSync").
+                description("Realtime and Offline").
+                build();
+
+        mAWSAppSyncClient.mutate(CreateOrdersMutation.builder().input(createOrdersInput).build())
+                .enqueue(mutationCallback);
+    }
+
+    private GraphQLCall.Callback<CreateOrdersMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateOrdersMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateOrdersMutation.Data> response) {
+            Log.i("Results", "Added Orders");
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+    };
 }

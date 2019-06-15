@@ -1,0 +1,69 @@
+# this is an auto generated file. This will be overwritten
+query GetOrders($id: ID!) {
+  getOrders(id: $id) {
+    transactionId
+    fromAddress
+    toAddress
+    pickupTime
+    receiverName
+    receiverNumber
+    packageWeight
+    sizeW
+    sizeL
+    sizeH
+    note
+    fee
+    type
+    owner
+    xx
+  }
+}
+query ListOrderss(
+  $filter: ModelOrdersFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listOrderss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      transactionId
+      fromAddress
+      toAddress
+      pickupTime
+      receiverName
+      receiverNumber
+      packageWeight
+      sizeW
+      sizeL
+      sizeH
+      note
+      fee
+      type
+      owner
+      xx
+    }
+    nextToken
+  }
+}
+query GetUsers($id: ID!) {
+  getUsers(id: $id) {
+    userId
+    phoneNumber
+    address
+    email
+  }
+}
+query ListUserss(
+  $filter: ModelUsersFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUserss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      userId
+      phoneNumber
+      address
+      email
+    }
+    nextToken
+  }
+}

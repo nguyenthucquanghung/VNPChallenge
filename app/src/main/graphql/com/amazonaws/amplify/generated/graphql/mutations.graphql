@@ -1,0 +1,82 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateOrders($input: CreateOrdersInput!) {
+  createOrders(input: $input) {
+    transactionId
+    fromAddress
+    toAddress
+    pickupTime
+    receiverName
+    receiverNumber
+    packageWeight
+    sizeW
+    sizeL
+    sizeH
+    note
+    fee
+    type
+    owner
+    xx
+  }
+}
+mutation UpdateOrders($input: UpdateOrdersInput!) {
+  updateOrders(input: $input) {
+    transactionId
+    fromAddress
+    toAddress
+    pickupTime
+    receiverName
+    receiverNumber
+    packageWeight
+    sizeW
+    sizeL
+    sizeH
+    note
+    fee
+    type
+    owner
+    xx
+  }
+}
+mutation DeleteOrders($input: DeleteOrdersInput!) {
+  deleteOrders(input: $input) {
+    transactionId
+    fromAddress
+    toAddress
+    pickupTime
+    receiverName
+    receiverNumber
+    packageWeight
+    sizeW
+    sizeL
+    sizeH
+    note
+    fee
+    type
+    owner
+    xx
+  }
+}
+mutation CreateUsers($input: CreateUsersInput!) {
+  createUsers(input: $input) {
+    userId
+    phoneNumber
+    address
+    email
+  }
+}
+mutation UpdateUsers($input: UpdateUsersInput!) {
+  updateUsers(input: $input) {
+    userId
+    phoneNumber
+    address
+    email
+  }
+}
+mutation DeleteUsers($input: DeleteUsersInput!) {
+  deleteUsers(input: $input) {
+    userId
+    phoneNumber
+    address
+    email
+  }
+}
