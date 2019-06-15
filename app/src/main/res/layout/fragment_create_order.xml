@@ -9,7 +9,8 @@
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="16dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -34,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:text="Create an order"
                     android:textSize="24sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/blue"
                     android:textStyle="bold"
                     android:layout_centerInParent="true"/>
 
@@ -49,13 +50,13 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="5dp"
                 android:id="@+id/cv_pickup">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
+                    android:padding="4dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -74,7 +75,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_home"
-                            android:layout_gravity="center_vertical"/>
+                            android:layout_gravity="center_vertical"
+                            android:tint="@color/blue"/>
 
                         <EditText
                             android:layout_width="match_parent"
@@ -96,6 +98,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_calendar"
+                            android:tint="@color/blue"
                             android:layout_gravity="center_vertical"/>
 
                         <TextView
@@ -120,7 +123,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="5dp"
                 android:layout_below="@id/cv_pickup"
                 android:id="@+id/cv_receive">
 
@@ -128,7 +131,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="8dp">
+                    android:padding="4dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -168,6 +171,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_home"
+                            android:tint="@color/blue"
                             android:layout_gravity="center_vertical"/>
 
                         <EditText
@@ -189,6 +193,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:tint="@color/blue"
                             android:src="@drawable/ic_phone_number"
                             android:layout_gravity="center_vertical"/>
 
@@ -215,7 +220,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="5dp"
                 android:layout_below="@id/cv_receive"
                 android:id="@+id/cv_type">
 
@@ -223,7 +228,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="8dp">
+                    android:padding="4dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -270,7 +275,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="5dp"
                 android:layout_below="@id/cv_type"
                 android:id="@+id/cv_package">
 
@@ -278,7 +283,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="8dp">
+                    android:padding="4dp">
 
                     <TextView
                         android:layout_width="wrap_content"

@@ -3,6 +3,7 @@ package com.example.vnpchallenge.model;
 import java.util.Date;
 
 public class Order {
+    private long id;
     private String fromAddress;
     private String toAddress;
     private Date pickupTime;
@@ -16,7 +17,20 @@ public class Order {
     private float fee;
     private int type;
 
-    public Order(String fromAddress, String toAddress, Date pickupTime, String receiverName, String receiverNumber, float packageWeight, float sizeW, float sizeL, float sizeH, String note, float fee, int type) {
+    public Order(long id,
+                 String fromAddress,
+                 String toAddress,
+                 Date pickupTime,
+                 String receiverName,
+                 String receiverNumber,
+                 float packageWeight,
+                 float sizeW,
+                 float sizeL,
+                 float sizeH,
+                 String note,
+                 float fee,
+                 int type) {
+        this.id = id;
         this.fromAddress = fromAddress;
         this.toAddress = toAddress;
         this.pickupTime = pickupTime;
@@ -125,5 +139,24 @@ public class Order {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", fromAddress='" + fromAddress + '\'' +
+                ", toAddress='" + toAddress + '\'' +
+                ", pickupTime=" + pickupTime +
+                ", receiverName='" + receiverName + '\'' +
+                ", receiverNumber='" + receiverNumber + '\'' +
+                ", packageWeight=" + packageWeight +
+                ", sizeW=" + sizeW +
+                ", sizeL=" + sizeL +
+                ", sizeH=" + sizeH +
+                ", note='" + note + '\'' +
+                ", fee=" + fee +
+                ", type=" + type +
+                '}';
     }
 }
