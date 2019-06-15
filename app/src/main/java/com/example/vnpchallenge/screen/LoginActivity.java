@@ -13,7 +13,7 @@ import com.example.vnpchallenge.R;
 import com.example.vnpchallenge.base.BaseActivity;
 import com.example.vnpchallenge.base.Constant;
 
-public class Login extends BaseActivity {
+public class LoginActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_login;
@@ -33,14 +33,14 @@ public class Login extends BaseActivity {
                 String username = edtUsername.getText().toString();
                 String password = edtPassword.getText().toString();
                 if (validate(username, password)) {
-                    SharedPreferences sharedPreferences = Login.this.getSharedPreferences(Constant.USER, Login.this.MODE_PRIVATE);
+                    SharedPreferences sharedPreferences = LoginActivity.this.getSharedPreferences(Constant.USER, LoginActivity.this.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString(Constant.LOGIN, username);
                     editor.apply();
 
-                    Intent intent = new Intent(Login.this, HomeActivity.class);
-                    Login.this.finish();
-                    Login.this.startActivity(intent);
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    LoginActivity.this.finish();
+                    LoginActivity.this.startActivity(intent);
                 }
             }
         });

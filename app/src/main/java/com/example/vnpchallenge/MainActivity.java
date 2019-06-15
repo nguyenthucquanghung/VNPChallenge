@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import com.example.vnpchallenge.base.BaseActivity;
 import com.example.vnpchallenge.base.Constant;
 import com.example.vnpchallenge.screen.HomeActivity;
-import com.example.vnpchallenge.screen.Login;
+import com.example.vnpchallenge.screen.LoginActivity;
 
 public class MainActivity extends BaseActivity {
     @Override
@@ -20,7 +20,7 @@ public class MainActivity extends BaseActivity {
         SharedPreferences sharedPref = this.getSharedPreferences(Constant.USER, MainActivity.this.MODE_PRIVATE);
         String userID = sharedPref.getString(Constant.LOGIN, null);
         if (userID == null) {
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             this.startActivity(intent);
             this.finish();
         } else {
