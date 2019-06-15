@@ -1,6 +1,11 @@
 package com.example.vnpchallenge.screen;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,16 +18,19 @@ import android.view.ViewGroup;
 
 import com.example.vnpchallenge.R;
 import com.example.vnpchallenge.adapter.OrderListAdapter;
+import com.example.vnpchallenge.database.DatabaseManager;
 import com.example.vnpchallenge.model.Order;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class OrderListFragment extends Fragment {
     private static final String TAG = "OrderListFragment";
 
     RecyclerView rcvOrderList;
-    ArrayList<Order> orders = new ArrayList<>();
+    List<Order> orders = new ArrayList<>();
+    OrderListAdapter adapter;
 
     public OrderListFragment () {
 
@@ -42,13 +50,28 @@ public class OrderListFragment extends Fragment {
 
         getData();
 
-        OrderListAdapter adapter = new OrderListAdapter(orders, getContext());
+        adapter = new OrderListAdapter(orders, getContext());
         rcvOrderList.setLayoutManager(new LinearLayoutManager(getContext()));
         rcvOrderList.setAdapter(adapter);
+
+        getContext().registerReceiver(receiver, new IntentFilter("update_order"));
     }
 
     private void getData() {
-        orders.add(new Order("Hanoi", "Hochiminh City",System.currentTimeMillis(),
-                "Hung","0971423103", 5,2,3,4,"Birthday Gift",100000,1));
+        orders = DatabaseManager.getInstance(getContext()).getListOrder();
     }
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    adapter.orders = DatabaseManager.getInstance(getContext()).getListOrder();
+                    adapter.notifyDataSetChanged();
+                }
+            },1000);
+        }
+    };
 }
