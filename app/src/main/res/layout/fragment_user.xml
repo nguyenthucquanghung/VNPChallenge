@@ -90,7 +90,8 @@
                 android:textAllCaps="false"
                 android:background="@color/yellow"
                 android:textColor="@color/white"
-                android:layout_margin="24dp"/>
+                android:layout_margin="24dp"
+                android:id="@+id/btn_logout"/>
 
         </LinearLayout>
 
