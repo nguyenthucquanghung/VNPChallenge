@@ -56,16 +56,24 @@ public class OrderListFragment extends Fragment {
                 .build();
 
         rcvOrderList = view.findViewById(R.id.rcv_orders);
-
-        runQuery();
-
-        renderData();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
+
+
     private void renderData() {
-        OrderListAdapter adapter = new OrderListAdapter(orders, getContext());
-        rcvOrderList.setLayoutManager(new LinearLayoutManager(getContext()));
-        rcvOrderList.setAdapter(adapter);
+        this.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                OrderListAdapter adapter = new OrderListAdapter(orders, getContext());
+                rcvOrderList.setLayoutManager(new LinearLayoutManager(getContext()));
+                rcvOrderList.setAdapter(adapter);
+            }
+        });
     }
 
     public void runQuery(){
