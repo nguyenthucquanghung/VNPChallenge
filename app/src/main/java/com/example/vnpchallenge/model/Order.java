@@ -20,7 +20,6 @@ public class Order {
     private float fee;
     private int type;
 
-    @Ignore
     public Order(
                  String fromAddress,
                  String toAddress,
