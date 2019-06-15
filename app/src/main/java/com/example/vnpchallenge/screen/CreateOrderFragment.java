@@ -2,6 +2,7 @@ package com.example.vnpchallenge.screen;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.vnpchallenge.R;
+import com.example.vnpchallenge.database.DatabaseManager;
 import com.example.vnpchallenge.model.Order;
 
 import java.text.SimpleDateFormat;
@@ -78,8 +80,9 @@ public class CreateOrderFragment extends Fragment {
                 float lSize = Float.valueOf(sizeL.getText().toString());
                 float weight = Float.valueOf(edtWeight.getText().toString());
                 String note = edtNote.getText().toString();
+                int id = DatabaseManager.getInstance(getContext()).getNumberOfOrder();
 
-                Order order = new Order(fromAddress, toAddress, date.getTime(), toName, toNumber, weight, rSize, lSize, hSize, note, rSize*hSize*lSize,type);
+                Order order = new Order(id, fromAddress, toAddress, date.getTime(), toName, toNumber, weight, rSize, lSize, hSize, note, rSize*hSize*lSize,type);
                 if (checkValidate(order)) {
                     postData(order);
                 } else {
@@ -110,6 +113,8 @@ public class CreateOrderFragment extends Fragment {
     }
 
     private void postData(Order order) {
+        DatabaseManager.getInstance(getContext()).addOrder(order);
+        getContext().sendBroadcast(new Intent("update_order"));
     }
 
     private void bindData() {

@@ -1,12 +1,7 @@
 package com.example.vnpchallenge.model;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.PrimaryKey;
-
-import java.util.Date;
-
 public class Order {
+    private int id;
     private String fromAddress;
     private String toAddress;
     private long pickupTime;
@@ -20,7 +15,7 @@ public class Order {
     private float fee;
     private int type;
 
-    public Order(
+    public Order(int id,
                  String fromAddress,
                  String toAddress,
                  long pickupTime,
@@ -33,6 +28,7 @@ public class Order {
                  String note,
                  float fee,
                  int type) {
+        this.id = id;
         this.fromAddress = fromAddress;
         this.toAddress = toAddress;
         this.pickupTime = pickupTime;
@@ -47,7 +43,13 @@ public class Order {
         this.type = type;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFromAddress() {
         return fromAddress;

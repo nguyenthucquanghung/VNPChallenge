@@ -15,14 +15,15 @@ import com.example.vnpchallenge.model.Order;
 import com.example.vnpchallenge.screen.OrderDetailActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderListViewholder> {
     private static final String TAG = "OrderListAdapter";
 
-    private ArrayList<Order> orders;
+    public List<Order> orders;
     private Context context;
 
-    public OrderListAdapter(ArrayList<Order> orders, Context context) {
+    public OrderListAdapter(List<Order> orders, Context context) {
         this.orders = orders;
         this.context = context;
     }
