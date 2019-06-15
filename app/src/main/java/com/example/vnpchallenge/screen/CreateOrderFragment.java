@@ -85,6 +85,7 @@ public class CreateOrderFragment extends Fragment {
                 Order order = new Order(id, fromAddress, toAddress, date.getTime(), toName, toNumber, weight, rSize, lSize, hSize, note, rSize*hSize*lSize,type);
                 if (checkValidate(order)) {
                     postData(order);
+                    Toast.makeText(getContext(), "Create order successfully.", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getContext(), "Please fill all the required fields.", Toast.LENGTH_SHORT).show();
                 }
