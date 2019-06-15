@@ -6,10 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity(tableName = "orders")
 public class Order {
-    @PrimaryKey(autoGenerate = true)
-    private long id;
     private String fromAddress;
     private String toAddress;
     private Date pickupTime;
@@ -24,7 +21,7 @@ public class Order {
     private int type;
 
     @Ignore
-    public Order(long id,
+    public Order(
                  String fromAddress,
                  String toAddress,
                  Date pickupTime,
@@ -37,7 +34,6 @@ public class Order {
                  String note,
                  float fee,
                  int type) {
-        this.id = id;
         this.fromAddress = fromAddress;
         this.toAddress = toAddress;
         this.pickupTime = pickupTime;
@@ -52,13 +48,7 @@ public class Order {
         this.type = type;
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getFromAddress() {
         return fromAddress;
@@ -159,7 +149,6 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "id=" + id +
                 ", fromAddress='" + fromAddress + '\'' +
                 ", toAddress='" + toAddress + '\'' +
                 ", pickupTime=" + pickupTime +
