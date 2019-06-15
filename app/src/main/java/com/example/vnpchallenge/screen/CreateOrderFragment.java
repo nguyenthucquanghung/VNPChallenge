@@ -79,7 +79,7 @@ public class CreateOrderFragment extends Fragment {
                 float weight = Float.valueOf(edtWeight.getText().toString());
                 String note = edtNote.getText().toString();
 
-                Order order = new Order(fromAddress, toAddress, date, toName, toNumber, weight, rSize, lSize, hSize, note, rSize*hSize*lSize,type);
+                Order order = new Order(fromAddress, toAddress, date.getTime(), toName, toNumber, weight, rSize, lSize, hSize, note, rSize*hSize*lSize,type);
                 if (checkValidate(order)) {
                     postData(order);
                 } else {
