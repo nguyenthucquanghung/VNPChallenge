@@ -50,7 +50,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
     public class OrderListViewholder extends RecyclerView.ViewHolder {
 
-        TextView tvToName, tvToAddress, tvNote, tvFee;
+        TextView tvToName, tvToAddress, tvFee;
         View view;
 
         public OrderListViewholder(@NonNull View itemView) {
@@ -59,15 +59,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             view = itemView;
             tvToName = itemView.findViewById(R.id.tv_to_name);
             tvToAddress = itemView.findViewById(R.id.tv_to_address);
-            tvNote = itemView.findViewById(R.id.tv_note);
             tvFee = itemView.findViewById(R.id.tv_fee);
         }
 
         public void setData(final Order order) {
             tvToName.setText(order.getReceiverName());
             tvToAddress.setText(order.getToAddress());
-            tvNote.setText(order.getNote());
-            tvFee.setText(Double.toString(order.getFee()) + "vnd");
+            tvFee.setText("Pending...");
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

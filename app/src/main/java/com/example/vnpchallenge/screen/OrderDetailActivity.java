@@ -12,6 +12,7 @@ import com.example.vnpchallenge.R;
 import com.example.vnpchallenge.base.BaseActivity;
 import com.example.vnpchallenge.base.Constant;
 import com.example.vnpchallenge.model.Order;
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import org.w3c.dom.Text;
 
@@ -55,7 +56,6 @@ public class OrderDetailActivity extends BaseActivity {
         TextView tvWeight = findViewById(R.id.tv_weight);
         TextView tvNote = findViewById(R.id.tv_note);
         TextView tvFee = findViewById(R.id.tv_fee);
-        TextView tvOrderStatus = findViewById(R.id.tv_order_status);
 
         String size = String.valueOf(order.getSizeW())
                 + 'x' + order.getSizeL()
@@ -72,7 +72,11 @@ public class OrderDetailActivity extends BaseActivity {
         tvWeight.setText(weight);
         tvNote.setText(order.getNote());
         tvFee.setText(String.valueOf(order.getFee()));
-        tvOrderStatus.setText("DONE");
+
+        String[] descriptionData = {"Pending", "Process", "On delivery", "Complete"};
+
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.sp_status);
+        stateProgressBar.setStateDescriptionData(descriptionData);
     }
 
     private String getOrderTypeString(Order order) {

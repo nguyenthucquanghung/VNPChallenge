@@ -9,4 +9,6 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="yellow">#DBA907</color>
+    <color name="less_black">#333030</color>
+    <color name="some_color">#AF4120</color>
 </resources>

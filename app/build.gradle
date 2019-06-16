@@ -55,4 +55,7 @@ dependencies {
     implementation 'com.amazonaws:aws-android-sdk-appsync:2.8.+'
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
+    //step progress bar
+    implementation 'com.kofigyan.stateprogressbar:stateprogressbar:1.0.0'
 }

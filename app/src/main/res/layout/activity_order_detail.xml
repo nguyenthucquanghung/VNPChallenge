@@ -40,11 +40,50 @@
 
             </RelativeLayout>
 
-            <android.support.v7.widget.CardView
+            <RelativeLayout
+                android:id="@+id/cv_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rl_title"
+                android:padding="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_delivery_truck"/>
+
+                    <com.kofigyan.stateprogressbar.StateProgressBar
+                        android:id="@+id/sp_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:spb_currentStateNumber="one"
+                        app:spb_maxStateNumber="four"
+                        app:spb_stateBackgroundColor="#BDBDBD"
+                        app:spb_stateForegroundColor="#009688"
+                        app:spb_stateNumberBackgroundColor="#808080"
+                        app:spb_stateNumberForegroundColor="#eeeeee"
+                        app:spb_currentStateDescriptionColor="#009688"
+                        app:spb_stateDescriptionColor="#808080"
+                        app:spb_animateToCurrentProgressState="true"
+                        app:spb_checkStateCompleted="true"
+                        android:layout_below="@id/iv_status"
+                        android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cv_status"
+                android:layout_marginTop="8dp"
                 android:padding="5dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
@@ -52,11 +91,13 @@
                 app:cardCornerRadius="5dp"
                 android:id="@+id/cv_pickup">
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:orientation="vertical">
+                    android:layout_alignStart="@+id/cv_pickup"
+                    android:orientation="vertical"
+                    android:padding="4dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -73,41 +114,41 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_home"
                             android:layout_gravity="center_vertical"
-                            android:tint="@color/blue"/>
+                            android:src="@drawable/ic_home"
+                            android:tint="@color/blue" />
 
                         <TextView
                             android:id="@+id/tv_from_address_detail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hanoi, Vietnam"
                             android:layout_marginLeft="8dp"
-                            android:textColor="@color/black"/>
+                            android:text="Hanoi, Vietnam"
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="8dp">
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
                             android:src="@drawable/ic_calendar"
-                            android:tint="@color/blue"
-                            android:layout_gravity="center_vertical"/>
+                            android:tint="@color/blue" />
 
                         <TextView
+                            android:id="@+id/tv_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="15/6/2019"
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="8dp"
-                            android:textColor="@color/black"
-                            android:id="@+id/tv_date"/>
+                            android:text="15/6/2019"
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -355,12 +396,13 @@
                 android:orientation="horizontal"
                 android:layout_below="@+id/cv_package"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
                 android:id="@+id/rl_fee">
 
                 <TextView
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Estimate Fee : "
+                    android:text="Fee : "
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:layout_gravity="center_vertical"/>
@@ -375,41 +417,7 @@
 
             </LinearLayout>
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rl_fee"
-                android:padding="5dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="5dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tracking information"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Done"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:id="@+id/tv_order_status"/>
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
 
         </RelativeLayout>
     </ScrollView>
